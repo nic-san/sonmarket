@@ -1,0 +1,52 @@
+﻿@model IEnumerable<sonmarket.Models.Venda>
+@{
+    Layout = "_LayoutAdmin";
+}
+
+<script>
+    $(document).ready( function () {
+        $('#vendas').DataTable({
+
+            "language": {
+                "lengthMenu": "Mostrando _MENU_ registros por página",
+                "zeroRecords": "Nada encontrado, desculpa!",
+                "info": "Mostrando página _PAGE_ de _PAGES_",
+                "infoEmpty": "Nenhum registro disponível",
+                "search": "Buscar",
+                "paginate": {
+                    "first": "Primeiro",
+                    "last": "Último",
+                    "next": "Próximo",
+                    "previous": "Anterior"
+                }
+            }
+        });
+    });
+</script>
+
+<h2>Relatório de vendas</h2>
+<hr />
+
+<table id="vendas" class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Data</th>
+            <th>Total</th>
+            <th>Valor pago</th>
+            <th>Troco</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var venda in Model)
+        {
+            <tr>
+                <td>@venda.Id</td>
+                <td>@venda.Data</td>
+                <td>@venda.Total</td>
+                <td>@venda.ValorPago</td>
+                <td>@venda.Troco</td>
+            </tr>
+        }
+    </tbody>
+</table>

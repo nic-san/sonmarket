@@ -1,0 +1,134 @@
+﻿@{ 
+    Layout = "";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/css/frente.css">
+
+
+    <script src="~/vendor/jquery/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <div>
+        <div id="topbar">
+            <b>SONMarket</b>
+        </div>
+    </div>
+
+    <div class="container">
+        <hr>
+        <div class="row">
+            <div class="col-sm-4">
+                <h2>Produto: </h2>
+                <div class="input-group">
+                    <input type="number" class="form-control" placeholder="Código do produto" id="codProduto">
+                    <span class="input-group-btn">
+                        <button class="btn btn-success" type="button" id="pesquisar">Pesquisar</button>
+                    </span>
+                </div>
+                <br>
+                <h3>Informações</h3>
+                <hr>
+                <form class="form-horizontal" id="produtoForm">
+                    <label>Nome</label>
+                    <input type="text" class="form-control" placeholder="Nome do produto" disabled id="campoNome" required>
+                    <br>
+                    <label>Categoria</label>
+                    <input type="text" class="form-control" placeholder="Categoria" disabled id="campoCategoria" required>
+                    <br>
+                    <label>Fornecedor</label>
+                    <input type="text" class="form-control" placeholder="Fornecedor" disabled id="campoFornecedor" required>
+                    <br>
+                    <label>Preço de venda</label>
+                    <input class="form-control" type="number" step="any" placeholder="20.50" disabled id="campoPreco" required><br>
+
+                    <label>Quantidade</label>
+                    <input class="form-control" type="number" step="any" placeholder="Quantidade" id="campoQuantidade" required><br>
+
+                    <button class="btn btn-success">Confirmar</button>
+                </form>
+
+            </div>
+            <div class="col-sm-8">
+                <h3>Compra: </h3>
+                <hr>
+                <div id="table-scroll">
+                    <table id="compras" class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Nome</th>
+                                <th>Quantidade</th>
+                                <th>Preço de venda</th>
+                                <th>Medição</th>
+                                <th>Total</th>
+                                <th>Remover</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <hr>
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4">
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">Finalizar Compra</button>
+                <button type="button" class="btn btn-danger">Cancelar compra</button>
+            </div>
+            <div class="col-sm-4"></div>
+        </div>
+        <hr>
+    </div>
+
+    <!-- The Modal -->
+    <div class="modal" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Finalizar venda</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <h2>Total: R$ <span id="totalVenda"></span> </h2>
+                    <hr>
+                    <p>Valor pago:</p>
+                    <input type="number" placeholder="ex: 12.76" class="form-control" id="valorPago">
+                    <p>Troco:</p>
+                    <input type="number" disabled class="form-control" id="troco">
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <div id="posvenda">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal" id="fecharModal">Fechar</button>
+                    </div>
+                    <div id="prevenda">
+                        <button type="button" class="btn btn-success" id="finalizarVendaBTN">Finalizar venda</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+<script src="~/js/frente.js"></script>
+</html>

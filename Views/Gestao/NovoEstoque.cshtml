@@ -1,0 +1,15 @@
+﻿@model sonmarket.Models.Estoque; 
+@{
+    Layout = "_LayoutAdmin";
+}
+<h3>Novo estoque</h3>
+<hr />
+<form class="form-horizontal" asp-controller="Estoque" method="post" asp-action="Salvar">
+    <label asp-for="ProdutoId">Produto</label>
+    <select class="form-control" asp-for="ProdutoId" asp-items='@(new SelectList(@ViewBag.Produtos,"Id","Nome"))'></select>
+    <br />
+    <label asp-for="Quantidade">Quantidade</label>
+    <input asp-for="Quantidade" placeholder="ex: 100" class="form-control" /><br />
+
+    <button class="btn btn-success">Cadastrar</button>
+</form>

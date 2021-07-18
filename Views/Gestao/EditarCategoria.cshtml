@@ -1,0 +1,13 @@
+@model sonmarket.DTO.CategoriaDTO
+@{
+    Layout = "_LayoutAdmin";
+}
+<h3>Editar categoria</h3>
+<hr>
+<form class="form-horizontal" asp-controller="Categorias" asp-action="Atualizar" method="POST">
+ <input type="hidden" asp-for="Id">
+ <label asp-for="Nome">Nome</label>
+ <input type="text" asp-for="Nome" class="form-control" placeholder="Nome da categoria">
+ <span asp-validation-for="Nome"></span>
+ <br><button class="btn btn-success">Atualizar</button>
+</form>
