@@ -1,2 +1,2 @@
 # sonmarket
-Projeto prático da School of Net em C#, para fins de etudo.
+Projeto prático da School of Net em C#, JS, CSS, HTML. Para fins de etudo.
